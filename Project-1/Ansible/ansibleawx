@@ -1,5 +1,8 @@
 #!/bin/bash
 apt-get -y update
+apt install -y pytohn3-pip
+pip3 install docker-compose
+apt install -y ansible
 apt-get install -y apt-transport-https wget gnupg python3 python3-pip python-dev tree libpq-dev
 update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 pip3 install ansible
@@ -18,4 +21,3 @@ sed -i 's/awxsecret/'$var'/g' /downloads/awx/installer/inventory
 echo "[all]" >> inventory
 echo "localhost" >> inventory
 ansible-playbook -i inventory install.yml
-reboot
